@@ -1,0 +1,8 @@
+@import "../../styles/variables";
+.sidebar {
+  min-height: 100vh;
+  position: fixed;
+  width: $sidebarWidth;
+  border-right: 1px solid lightgray;
+  padding: 15px;
+}
