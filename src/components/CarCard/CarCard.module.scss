@@ -1,18 +1,39 @@
 .card {
-  border: 1px solid black;
-  border-radius: 8px;
+  display: flex;
+  background-color: #f5f5f5;
+  padding: 15px;
+  border-radius: 10px;
 
   .imgContainer {
-    border-bottom: 1px solid black;
     display: flex;
-    justify-content: center;
+    align-items: center;
+
     img {
-      width: 200px;
-      height: 150px;
+      border-radius: 10px;
+      margin-right: 7px;
     }
   }
 
   .stats {
-    padding: 10px;
+    display: flex;
+    flex-direction: column;
+
+    .item:not(:last-child) {
+      margin-bottom: 7px;
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .card {
+    flex-direction: column;
+    align-items: center;
+
+    .imgContainer {
+      img {
+        margin-bottom: 10px;
+        margin-right: 0;
+      }
+    }
   }
 }

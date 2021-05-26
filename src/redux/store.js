@@ -1,6 +1,8 @@
-import appReducer from './appReducer';
-import {createStore} from 'redux';
+import appReducer from './app.reducer';
+import {combineReducers, createStore} from 'redux';
 
-const store = createStore(appReducer)
+const rootReducer = combineReducers({app: appReducer})
+
+const store = createStore(rootReducer)
 
 export default store
