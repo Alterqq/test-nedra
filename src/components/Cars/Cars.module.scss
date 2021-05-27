@@ -5,9 +5,15 @@
 
   .carsList {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto;
     gap: 25px;
+  }
+
+  @media screen and (max-width: 1650px){
+    .carsList {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 
 

@@ -15,14 +15,12 @@ const CarCard = ({
         </div>
 
         <div className={styles.stats}>
-          <span className={styles.item}>Бренд: {brand}</span>
-          <span className={styles.item}>Модель: {model}</span>
-          <span className={styles.item}>Год выпуска: {year}</span>
+          <span className={styles.item}>{brand} {model}, {year}</span>
           <span className={styles.item}>Топливо: {translate('fuel', fuel)}</span>
           <span className={styles.item}>Кузов: {translate('bodyType', bodyType)}</span>
           <span className={styles.item}>Коробка передач: {translate('transmission', transmission)}</span>
           <span className={styles.item}>Пробег: {mileage} км</span>
-          <span className={styles.item}>Цена: {price} руб.</span>
+          <span className={`${styles.item} ${styles.price}`}>Цена: {price} руб.</span>
         </div>
       </div>
   );

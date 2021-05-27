@@ -10,16 +10,30 @@
 
     img {
       border-radius: 10px;
-      margin-right: 7px;
+      margin-right: 2rem;
     }
   }
 
   .stats {
     display: flex;
     flex-direction: column;
+    align-self: center;
 
-    .item:not(:last-child) {
-      margin-bottom: 7px;
+    .item {
+      font-size: 11px;
+
+      &:first-child {
+        font-size: 1.5em;
+      }
+
+      &:not(:last-child) {
+        margin-bottom: .7em;
+      }
+    }
+
+    .price {
+     font-weight: bold;
+      font-size: 13px;
     }
   }
 }
