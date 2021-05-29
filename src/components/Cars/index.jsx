@@ -4,6 +4,7 @@ import {CarCard, Loader} from '../';
 import {useDispatch, useSelector} from 'react-redux';
 import {getCars, getFilteredCars, getSearch} from '../../redux/selectors';
 import {filterCars, setCars} from '../../redux/actions';
+import {useFilter} from '../../hooks/search.hook';
 import styles from './Cars.module.scss'
 
 const Cars = () => {
@@ -12,6 +13,7 @@ const Cars = () => {
   const search = useSelector(getSearch)
   const filteredCars = useSelector(getFilteredCars)
   const dispatch = useDispatch()
+  const {filterBySearch} = useFilter(search)
 
   const loadCars = useCallback(async () => {
     try {
@@ -27,13 +29,8 @@ const Cars = () => {
   }, [loadCars])
 
   useEffect(() => {
-    dispatch(filterCars(cars.filter(car => {
-      const brand = car.brand.toLowerCase()
-      const model = car.model.toLowerCase()
-      const normalizedSearch = search.toLowerCase()
-      return brand.includes(normalizedSearch) || model.includes(normalizedSearch)
-    })))
-  }, [search, cars, dispatch])
+    dispatch(filterCars(cars.filter(filterBySearch)))
+  }, [cars, dispatch, filterBySearch])
 
   if (loading) {
     return (

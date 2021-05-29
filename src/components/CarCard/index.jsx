@@ -8,6 +8,7 @@ const CarCard = ({
                    price, mileage, transmission
                  }) => {
   const translate = useDictionary()
+  const normalizeNum = (srt) => srt.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")
   return (
       <div className={styles.card}>
         <div className={styles.imgContainer}>
@@ -19,8 +20,8 @@ const CarCard = ({
           <span className={styles.item}>Топливо: {translate('fuel', fuel)}</span>
           <span className={styles.item}>Кузов: {translate('bodyType', bodyType)}</span>
           <span className={styles.item}>Коробка передач: {translate('transmission', transmission)}</span>
-          <span className={styles.item}>Пробег: {mileage} км</span>
-          <span className={`${styles.item} ${styles.price}`}>Цена: {price} руб.</span>
+          <span className={styles.item}>Пробег: {normalizeNum(mileage)} км</span>
+          <span className={`${styles.item} ${styles.price}`}>Цена: {normalizeNum(price)} руб.</span>
         </div>
       </div>
   );

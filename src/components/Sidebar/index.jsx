@@ -4,7 +4,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {getCars, getSearch} from '../../redux/selectors';
 import {setSearch} from '../../redux/actions';
 import styles from './Sidebar.module.scss'
-import {FormControlLabel, Checkbox} from "@material-ui/core";
+import {FilterItem} from '../';
 
 const Sidebar = () => {
   const search = useSelector(getSearch)
@@ -28,13 +28,6 @@ const Sidebar = () => {
     getAllBrands()
   }, [getAllBrands])
 
-  const [filters, setFilters] = useState({
-    brand: false
-  })
-
-  const handleChange = (e) => {
-    setFilters(state => ({...state, [e.target.name]: e.target.checked}))
-  }
   return (
       <div className={styles.sidebar}>
         <TextField
@@ -47,20 +40,8 @@ const Sidebar = () => {
         />
 
         <h3>Brands</h3>
-        {brands.map(brand => (
-            <FormControlLabel
-                key={brand}
-                control={
-                  <Checkbox
-                      checked={filters.brand}
-                      onChange={handleChange}
-                      name={brand}
-                      color="primary"
-                      classes={{root: styles.filterCheck}}
-                  />
-                }
-                label={brand}
-            />
+        {brands.map((brand, idx) => (
+            <FilterItem key={`${brand}_${idx}`} item={brand}/>
         ))}
 
       </div>

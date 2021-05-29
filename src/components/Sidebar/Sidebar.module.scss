@@ -2,7 +2,6 @@
 
 .sidebar {
   min-height: 100vh;
-  position: fixed;
   width: $sidebarWidth;
   border-right: 1px solid lightgray;
   padding: 15px;
@@ -13,9 +12,5 @@
 
   h3 {
     margin: 1rem 0;
-  }
-
-  .filterCheck {
-    margin-left: .75rem;
   }
 }
