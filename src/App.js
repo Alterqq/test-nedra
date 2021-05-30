@@ -1,6 +1,6 @@
-import React from 'react';
-import styles from './App.module.scss';
-import {Cars, Sidebar} from './components';
+import React from 'react'
+import styles from './App.module.scss'
+import {Cars, Sidebar} from './components'
 
 function App() {
   return (

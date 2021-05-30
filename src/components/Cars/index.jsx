@@ -1,19 +1,17 @@
-import React, {useCallback, useEffect} from 'react';
-import {useHttp} from '../../hooks/http.hook';
-import {CarCard, Loader} from '../';
-import {useDispatch, useSelector} from 'react-redux';
-import {getCars, getFilteredCars, getSearch} from '../../redux/selectors';
-import {filterCars, setCars} from '../../redux/actions';
-import {useFilter} from '../../hooks/search.hook';
+import React, {useCallback, useEffect} from 'react'
+import {useHttp} from '../../hooks/http.hook'
+import {CarCard, Loader} from '../'
+import {useDispatch, useSelector} from 'react-redux'
+import {getCars, getFilteredCars} from '../../redux/selectors'
+import {setCars} from '../../redux/actions'
 import styles from './Cars.module.scss'
 
 const Cars = () => {
   const {loading, request} = useHttp()
-  const cars = useSelector(getCars)
-  const search = useSelector(getSearch)
   const filteredCars = useSelector(getFilteredCars)
+  const cars = useSelector(getCars)
   const dispatch = useDispatch()
-  const {filterBySearch} = useFilter(search)
+  window.cars = cars
 
   const loadCars = useCallback(async () => {
     try {
@@ -28,10 +26,6 @@ const Cars = () => {
     loadCars()
   }, [loadCars])
 
-  useEffect(() => {
-    dispatch(filterCars(cars.filter(filterBySearch)))
-  }, [cars, dispatch, filterBySearch])
-
   if (loading) {
     return (
         <Loader/>
@@ -40,10 +34,11 @@ const Cars = () => {
   return (
       <div className={styles.wrapper}>
         <div className={styles.carsList}>
+          {!filteredCars.length && <span>Ничего не найдено</span>}
           {filteredCars.map((car, idx) => (<CarCard key={`${car}_${idx}`} {...car}/>))}
         </div>
       </div>
-  );
-};
+  )
+}
 
-export default Cars;
+export default Cars

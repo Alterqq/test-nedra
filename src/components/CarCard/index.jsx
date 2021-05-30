@@ -1,5 +1,5 @@
-import React from 'react';
-import {useDictionary} from '../../hooks/dictionary.hook';
+import React from 'react'
+import {useDictionary} from '../../hooks/dictionary.hook'
 import styles from './CarCard.module.scss'
 
 const CarCard = ({
@@ -24,7 +24,7 @@ const CarCard = ({
           <span className={`${styles.item} ${styles.price}`}>Цена: {normalizeNum(price)} руб.</span>
         </div>
       </div>
-  );
-};
+  )
+}
 
-export default CarCard;
+export default CarCard

@@ -1,3 +1,5 @@
 export const SET_CARS = 'app/SET_CARS'
 export const SET_SEARCH = 'app/SET_SEARCH'
-export const FILTER_CARS = 'app/FILTER_CARS'
+export const ADD_CHECK_FILTER = 'app/ADD_CHECK_FILTER_TYPE'
+export const REMOVE_CHECK_FILTER = 'app/REMOVE_CHECK_FILTER_TYPE'
+export const SET_RANGE_FILTER = 'app/SET_RANGE_FILTER_TYPE'

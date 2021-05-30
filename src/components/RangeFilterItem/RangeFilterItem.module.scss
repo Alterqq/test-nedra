@@ -1,0 +1,11 @@
+.values, .current {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.current {
+  span {
+    font-size: 12px;
+  }
+}
